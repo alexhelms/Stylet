@@ -12,7 +12,7 @@ namespace StyletUnitTests;
 [TestFixture]
 public class MessageBoxTests
 {
-    private class MyMessageBoxViewModel : MessageBoxViewModel
+    internal class MyMessageBoxViewModel : MessageBoxViewModel
     {
         public new void OnViewLoaded()
         {

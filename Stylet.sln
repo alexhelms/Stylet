@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29021.104
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StyletUnitTests", "StyletUnitTests\StyletUnitTests.csproj", "{13AFA20D-CCEA-4A58-920E-4D8816C7296B}"
 EndProject
@@ -43,7 +43,6 @@ Global
 		{895A0541-84CF-4D3D-9539-58F1FC286336}.Release|x64.ActiveCfg = Release|Any CPU
 		{895A0541-84CF-4D3D-9539-58F1FC286336}.Release|x64.Build.0 = Release|Any CPU
 		{4122F924-6B71-4DDA-995E-FAF78242E20C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4122F924-6B71-4DDA-995E-FAF78242E20C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4122F924-6B71-4DDA-995E-FAF78242E20C}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{4122F924-6B71-4DDA-995E-FAF78242E20C}.Debug|x64.Build.0 = Debug|Any CPU
 		{4122F924-6B71-4DDA-995E-FAF78242E20C}.Release|Any CPU.ActiveCfg = Release|Any CPU

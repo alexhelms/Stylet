@@ -3,26 +3,21 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using System.Windows;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Stylet;
 
 /// <summary>
 /// Implementation of IScreen. Useful as a base class for your ViewModels
 /// </summary>
-public class Screen : ValidatingModelBase, IScreen
+public class Screen : ObservableValidator, IScreen
 {
     private readonly ILogger logger;
 
     /// <summary>
     /// Initialises a new instance of the <see cref="Screen"/> class, without setting up a validator
     /// </summary>
-    public Screen() : this(null) { }
-
-    /// <summary>
-    /// Initialises a new instance of the <see cref="Screen"/> class, which can validate properties using the given validator
-    /// </summary>
-    /// <param name="validator">Validator to use</param>
-    public Screen(IModelValidator validator) : base(validator)
+    public Screen()
     {
         Type type = this.GetType();
         this.DisplayName = type.FullName;
@@ -40,7 +35,7 @@ public class Screen : ValidatingModelBase, IScreen
     public string DisplayName
     {
         get => this._displayName;
-        set => this.SetAndNotify(ref this._displayName, value);
+        set => this.SetProperty(ref this._displayName, value);
     }
 
     #endregion
@@ -67,14 +62,14 @@ public class Screen : ValidatingModelBase, IScreen
         get => this._screenState;
         protected set
         {
-            if (this.SetAndNotify(ref this._screenState, value))
+            if (this.SetProperty(ref this._screenState, value))
             {
                 // Temporary, until we remove 'State'
 #pragma warning disable CS0618 // Type or member is obsolete
-                this.NotifyOfPropertyChange(nameof(this.State));
+                this.OnPropertyChanged(nameof(this.State));
 #pragma warning restore CS0618 // Type or member is obsolete
             }
-            this.NotifyOfPropertyChange(nameof(this.IsActive));
+            this.OnPropertyChanged(nameof(this.IsActive));
         }
     }
 
@@ -254,7 +249,7 @@ public class Screen : ValidatingModelBase, IScreen
     public object Parent
     {
         get => this._parent;
-        set => this.SetAndNotify(ref this._parent, value);
+        set => this.SetProperty(ref this._parent, value);
     }
 
     #endregion

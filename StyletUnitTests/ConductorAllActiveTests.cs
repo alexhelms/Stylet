@@ -12,7 +12,7 @@ public class ConductorAllActiveTests
     public interface IMyScreen : IScreen, IDisposable
     { }
 
-    private class MyConductor : Conductor<IScreen>.Collection.AllActive
+    internal class MyConductor : Conductor<IScreen>.Collection.AllActive
     {
         public bool CanCloseValue = true;
         public override async Task<bool> CanCloseAsync()

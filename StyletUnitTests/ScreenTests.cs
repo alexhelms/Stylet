@@ -11,16 +11,9 @@ namespace StyletUnitTests;
 [TestFixture]
 public class ScreenTests
 {
-    private class MyScreen : Screen
+    internal class MyScreen : Screen
     {
-        public new IModelValidator Validator
-        {
-            get => base.Validator;
-            set => base.Validator = value;
-        }
-
         public MyScreen() { }
-        public MyScreen(IModelValidator validator) : base(validator) { }
 
         public void Reset()
         {
@@ -417,14 +410,6 @@ public class ScreenTests
     }
 
 #pragma warning restore 618
-
-    [Test]
-    public void PassesValidatorAdapter()
-    {
-        var adapter = new Mock<IModelValidator>();
-        var screen = new MyScreen(adapter.Object);
-        Assert.AreEqual(adapter.Object, screen.Validator);
-    }
 
     [Test]
     public void InitialActivateFiredWhenComingFromDeactivated()

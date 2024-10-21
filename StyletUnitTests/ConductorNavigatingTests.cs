@@ -13,7 +13,7 @@ public class ConductorNavigatingTests
     public interface IMyScreen : IScreen, IDisposable
     { }
 
-    private class MyConductor : Conductor<IScreen>.StackNavigation
+    internal class MyConductor : Conductor<IScreen>.StackNavigation
     {
         public bool CanCloseValue = true;
         public override async Task<bool> CanCloseAsync()

@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using NUnit.Framework;
 using Stylet;
 using Stylet.Xaml;
 using System;
@@ -10,7 +11,7 @@ namespace StyletUnitTests;
 [TestFixture]
 public class CommandActionTests
 {
-    private class Target : PropertyChangedBase
+    private class Target : ObservableObject
     {
         public bool DoSomethingCalled;
         public void DoSomething()
@@ -22,7 +23,7 @@ public class CommandActionTests
         public bool CanDoSomethingWithGuard
         {
             get => this._canDoSomethingWithGuard;
-            set => this.SetAndNotify(ref this._canDoSomethingWithGuard, value);
+            set => this.SetProperty(ref this._canDoSomethingWithGuard, value);
         }
 
         public bool DoSomethingWithGuardCalled;
